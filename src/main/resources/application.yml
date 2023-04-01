@@ -1,2 +1,25 @@
 server:
   port: 8083
+
+spring:
+  batch:
+    #    initialize-schema: always
+    jdbc:
+      initialize-schema: always
+    job:
+      enabled: false
+  #      initialize-schema: always
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/spring_batch_demo
+    username: 'root'
+    password: 'root'
+    initialization-mode: always
+    continue-on-error: true
+    platform: mysql
+  jpa:
+    open-in-view: true
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl

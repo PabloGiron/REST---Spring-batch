@@ -3,6 +3,7 @@ package com.example.rest;
 import com.example.rest.entities.User;
 import com.example.rest.repositories.UserRepository;
 import com.github.javafaker.Faker;
+import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -10,6 +11,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
+@EnableBatchProcessing
 public class RestApplication implements ApplicationRunner {
 
 	@Autowired
@@ -29,12 +31,12 @@ public class RestApplication implements ApplicationRunner {
 		configClass.corePoolSize++;
 		System.out.println(configClass.corePoolSize);
 
-		for (int i = 0; i < 300000; i++) {
-			User user = new User();
-			user.setUsername(faker.name().username());
-			user.setPassword(faker.pokemon().name());
-			user.setProfile(null);
-			userRepository.save(user);
-		}
+//		for (int i = 0; i < 30; i++) {
+//			User user = new User();
+//			user.setUsername(faker.name().username());
+//			user.setPassword(faker.pokemon().name());
+//			user.setProfile(null);
+//			userRepository.save(user);
+//		}
 	}
 }
